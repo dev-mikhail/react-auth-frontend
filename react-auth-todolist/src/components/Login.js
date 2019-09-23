@@ -30,7 +30,7 @@ class Login extends Component {
   }
 
   render() {
-    this.render(
+    return (
       <div className="container" style={{ marginTop: '50px', width: '700px' }}>
         <h2 style={{ marginBottom: '40px' }}>Login</h2>
         <form onSubmit={this.handlesubmit}>

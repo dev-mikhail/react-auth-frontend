@@ -50,7 +50,8 @@ class Register extends Component {
             />
           </div>
           <div className="form-group">
-            <input type="email"
+            <input
+              type="email"
               placeholder="Email"
               className="form-control"
               name="email"
