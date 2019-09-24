@@ -5,18 +5,18 @@ import { Link } from 'react-router-dom';
 class Navbar extends Component {
   render() {
     return (
-      <nav className="navbar nav-bar-expand-lg navbar-light bg-light">
-        <Link className="navbar-brand" href="#">Redux Auth</Link>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <Link className="navbar-brand" to="/">Redux Node Auth</Link>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <Link className="nav-link" href="#">Home</Link>
+              <Link className="nav-link" to="/register">Sign Up</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" href="#">Register</Link>
+              <Link className="nav-link" to="/Login">Sign In</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" href="#">Login</Link>
+              <Link className="nav-link" to="/">Home</Link>
             </li>
           </ul>
         </div>
