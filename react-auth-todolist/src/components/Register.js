@@ -18,13 +18,13 @@ class Register extends Component {
       password_confirm: '',
       errors: {}
     }
-    this.handInputChange = this.handleInputChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInputChange(e) {
     this.setState({
-      [e.target.name]: e.tartet.value
+      [e.target.name]: e.target.value
     })
   }
 
