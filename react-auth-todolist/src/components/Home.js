@@ -38,7 +38,6 @@ class Home extends Component {
   }
 
   render() {
-    const { characters } = this.state
     const characters = this.props.characters.data;
 
     return (
