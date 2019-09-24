@@ -12,14 +12,19 @@ export default function (state = initialState, action) {
     case CREATE_CHARACTER:
       return {
         ...state,
-        data: action.payload
+        data: [...state.data, action.payload]
       }
     case READ_CHARACTER:
       return {
         ...state,
         data: action.payload
       }
-
+    case DELETE_CHARACTER:
+      const newData = state.data.filter(value => action.payload._id != value._id);
+      return {
+        ...state,
+        data: newData
+      }
     default:
       return state;
   }
