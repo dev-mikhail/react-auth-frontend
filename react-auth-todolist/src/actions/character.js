@@ -2,9 +2,6 @@
 
 import axios from 'axios';
 import { GET_ERRORS, CREATE_CHARACTER, READ_CHARACTER, UPDATE_CHARACTER, DELETE_CHARACTER } from './types';
-import setAuthToken from '../setAuthToken';
-import jwt_decode from 'jwt-decode';
-
 
 export const createCharacter = (data) => dispatch => {
   axios.post('api/characters/', data)

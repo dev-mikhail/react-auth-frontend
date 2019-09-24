@@ -1,7 +1,6 @@
 // characterReducer.js
 
 import { CREATE_CHARACTER, READ_CHARACTER, UPDATE_CHARACTER, DELETE_CHARACTER } from '../actions/types';
-import isEmpty from '../validation/is-empty';
 
 const initialState = {
   data: []
@@ -20,7 +19,7 @@ export default function (state = initialState, action) {
         data: action.payload
       }
     case DELETE_CHARACTER:
-      const newData = state.data.filter(value => action.payload._id != value._id);
+      const newData = state.data.filter(value => action.payload._id !== value._id);
       return {
         ...state,
         data: newData

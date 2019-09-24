@@ -4,11 +4,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import classnames from 'classnames';
+// import classnames from 'classnames';
 
-import store from '../store';
-import jwt_decode from 'jwt-decode';
-import setAuthToken from '../setAuthToken';
+// import store from '../store';
+// import jwt_decode from 'jwt-decode';
+// import setAuthToken from '../setAuthToken';
 import { createCharacter, readCharacterAll, readCharacter, deleteCharacter } from '../actions/character';
 import Table from './Table'
 import Form from './Form'
@@ -42,8 +42,6 @@ class Home extends Component {
 
     return (
       <div className="container">
-        <Table characterData={characters} removeCharacter={this.removeCharacter} />
-        <Form handleSubmit={this.insertCharacter} />
         <Table characterData={characters} removeCharacter={this.onClickDelete} />
         <Form handleSubmit={this.onClickInsert} />
       </div>
