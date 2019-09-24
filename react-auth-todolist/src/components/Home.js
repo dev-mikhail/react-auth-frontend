@@ -1,40 +1,68 @@
 // Home.js
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
+import classnames from 'classnames';
+
 import store from '../store';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from '../setAuthToken';
-import { setCurrentUser, logoutUser } from '../actions/authentication';
+import { createCharacter, readCharacterAll, readCharacter } from '../actions/character';
 import Table from './Table'
 import Form from './Form'
 
-export default class Home extends Component {
+class Home extends Component {
   state = {
     characters: [
     ],
   }
 
-  removeCharacter = index => {
-    const { characters } = this.state
-
-    this.setState({
-      characters: characters.filter((character, i) => {
-        return i !== index
-      }),
-    })
+  componentDidMount() {
+    this.props.readCharacterAll(); //fetch all records
   }
 
-  insertCharacter = character => {
-    this.setState({ characters: [...this.state.characters, character] })
+  componentDidUpdate(prevProps) {
+    if (this.props.characters.data != prevProps.characters.data) {
+      this.setState({ characters: this.props.characters.data });
+    }
+  }
+
+  onClickDelete = index => {
+  }
+
+  onClickInsert = character => {
   }
 
   render() {
     const { characters } = this.state
+    const characters = this.props.characters.data;
+
     return (
       <div className="container">
         <Table characterData={characters} removeCharacter={this.removeCharacter} />
         <Form handleSubmit={this.insertCharacter} />
+        <Table characterData={characters} removeCharacter={this.onClickDelete} />
+        <Form handleSubmit={this.onClickInsert} />
       </div>
     );
   }
 }
+
+Home.propTypes = {
+  createCharacter: PropTypes.func.isRequired,
+  readCharacterAll: PropTypes.func.isRequired,
+  readCharacter: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+  characters: state.character,
+  errors: state.errors
+});
+
+// const mapDispatchToProps = {
+//     registerUser: registerUser
+// }
+
+export default connect(mapStateToProps, { createCharacter, readCharacterAll, readCharacter })(withRouter(Home))
