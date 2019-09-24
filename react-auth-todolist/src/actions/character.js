@@ -23,7 +23,7 @@ export const createCharacter = (data) => dispatch => {
 }
 
 export const readCharacter = (id) => dispatch => {
-  axios.get(`api/characters/${id}`)
+  axios.get(`api/characters/id/${id}`)
     .then(res => {
       dispatch({
         type: READ_CHARACTER,
@@ -39,7 +39,7 @@ export const readCharacter = (id) => dispatch => {
 }
 
 export const readCharacterAll = () => dispatch => {
-  axios.get(`api/characters/`)
+  axios.get(`api/characters/all/`)
     .then(res => {
       dispatch({
         type: READ_CHARACTER,

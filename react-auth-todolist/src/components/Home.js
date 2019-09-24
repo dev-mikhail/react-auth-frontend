@@ -55,7 +55,9 @@ class Home extends Component {
 Home.propTypes = {
   createCharacter: PropTypes.func.isRequired,
   readCharacterAll: PropTypes.func.isRequired,
-  readCharacter: PropTypes.func.isRequired
+  readCharacter: PropTypes.func.isRequired,
+  deleteCharacter: PropTypes.func.isRequired
+
 };
 
 const mapStateToProps = state => ({
