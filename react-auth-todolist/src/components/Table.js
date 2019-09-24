@@ -12,7 +12,7 @@ const TableHeader = () => {
 }
 
 const TableBody = props => {
-  const rows = props.characterData1.map((row, index) => {
+  const rows = props.characterData.map((row, index) => {
     return (
       <tr key={index}>
         <td>{row.name}</td>
@@ -32,7 +32,7 @@ class Table extends Component {
     return (
       <table>
         <TableHeader />
-        <TableBody characterData1={characterData} removeCharacter={removeCharacter} />
+        <TableBody characterData={characterData} removeCharacter={removeCharacter} />
       </table>
     )
   }
